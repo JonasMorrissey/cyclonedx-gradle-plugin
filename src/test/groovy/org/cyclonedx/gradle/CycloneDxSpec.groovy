@@ -35,8 +35,8 @@ class CycloneDxSpec extends Specification {
         def parentProject = ProjectBuilder.builder().withName("parent").withParent(rootProject).build()
         def childProject = ProjectBuilder.builder().withName("child").withParent(parentProject).build()
         def leafProject = ProjectBuilder.builder().withName("leaf").withParent(childProject).build()
-        rootProject.apply plugin: PLUGIN_ID
         rootProject.allprojects {
+            apply plugin: PLUGIN_ID
             group = "group"
             version = "1.3"
             description = "description"
